@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Section from '../components/Section';
+import SEO from '../components/SEO';
 
 const Gallery: React.FC = () => {
   const [activeFilter, setActiveFilter] = useState('All');
@@ -24,6 +25,10 @@ const Gallery: React.FC = () => {
 
   return (
     <div className="pt-20">
+      <SEO 
+        title="Art Exhibition Gallery | Aestraa Studio Portfolio"
+        description="View Aestraa's portfolio of paintings, large-scale installations, and immersive workshops. Our gallery showcases the best of contemporary art in Hyderabad."
+      />
       <section className="bg-white pt-24 md:pt-32 pb-16 md:pb-32 px-6 md:px-12 text-center" data-aos="fade">
         <div className="max-w-4xl mx-auto">
           <span className="text-gold text-xs uppercase tracking-[0.3em] font-bold mb-6 block">Our Creations</span>

@@ -2,6 +2,7 @@ import React from 'react';
 import Section from '../components/Section';
 import { ArrowRight, Check, Mail, Phone, MapPin, MessageCircle } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import SEO from '../components/SEO';
 
 const TestimonialSlider: React.FC = () => {
   const testimonials = [
@@ -135,6 +136,10 @@ const Home: React.FC = () => {
 
   return (
     <div className="overflow-hidden">
+      <SEO 
+        title="Aestraa - Premium Creative Studio | Hyderabad"
+        description="Aestraa is a premium creative studio in Hyderabad specializing in art workshops, commissioned artworks, and art consultancy for institutions and individuals."
+      />
       {/* Hero Section */}
       <section className="relative h-screen w-full flex items-center justify-center text-white">
         <div className="absolute inset-0 z-0">
@@ -467,7 +472,7 @@ const Home: React.FC = () => {
         {/* Google Map */}
         <div className="h-[450px] w-full bg-zinc-100 mt-20" data-aos="fade-up">
           <iframe 
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d243647.2517687157!2d78.26795908611893!3d17.412299801616605!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb99daeaebd2c7%3A0xae93b78392bafbc2!2sHyderabad%2C%20Telangana!5e0!3m2!1sen!2sin!4v1713876000000!5m2!1sen!2sin" 
+            src="https://maps.google.com/maps?q=17%C2%B029'35.6%22N%2078%C2%B020'15.1%22E&t=&z=15&ie=UTF8&iwloc=&output=embed" 
             width="100%" 
             height="100%" 
             style={{ border: 0 }} 

@@ -67,11 +67,14 @@ const Footer: React.FC = () => {
 
       </div>
 
-      <div className="max-w-7xl mx-auto border-t border-white/10 mt-24 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-        <p className="text-white/30 text-xs tracking-widest">
+      <div className="max-w-7xl mx-auto border-t border-white/10 mt-24 pt-8 flex flex-col md:flex-row justify-between items-center gap-6">
+        <p className="text-white/30 text-[10px] tracking-[0.2em] uppercase">
           © {new Date().getFullYear()} AESTRAA STUDIO. ALL RIGHTS RESERVED.
         </p>
-        <p className="text-white/30 text-xs tracking-widest">
+        <p className="text-white/30 text-[10px] tracking-[0.2em] uppercase">
+          Developed by <a href="https://codtechitsolutions.com/" target="_blank" rel="noopener noreferrer" className="text-gold/50 hover:text-gold transition-colors font-bold">CODTECH IT SOLUTION</a>
+        </p>
+        <p className="text-white/30 text-[10px] tracking-[0.2em] uppercase">
           DESIGNED FOR ARTISTIC EXCELLENCE
         </p>
       </div>

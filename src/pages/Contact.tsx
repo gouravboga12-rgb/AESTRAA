@@ -1,10 +1,15 @@
 import React from 'react';
 import Section from '../components/Section';
 import { Mail, Phone, MapPin, MessageCircle, ArrowRight } from 'lucide-react';
+import SEO from '../components/SEO';
 
 const Contact: React.FC = () => {
   return (
     <div className="pt-20">
+      <SEO 
+        title="Contact Aestraa Studio | Book a Workshop in Hyderabad"
+        description="Get in touch with Aestraa for art commissions, corporate workshops, or consultancy. Visit our studio in Hyderabad or reach out via email or WhatsApp."
+      />
       <section className="bg-zinc-50 pt-24 md:pt-32 pb-16 md:pb-32 px-6 md:px-12 text-center" data-aos="fade">
         <div className="max-w-4xl mx-auto">
           <span className="text-gold text-xs uppercase tracking-[0.3em] font-bold mb-6 block">Get in Touch</span>
@@ -140,7 +145,7 @@ const Contact: React.FC = () => {
       {/* Google Map */}
       <div className="h-[450px] w-full bg-zinc-100" data-aos="fade-up">
         <iframe 
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d243647.2517687157!2d78.26795908611893!3d17.412299801616605!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb99daeaebd2c7%3A0xae93b78392bafbc2!2sHyderabad%2C%20Telangana!5e0!3m2!1sen!2sin!4v1713876000000!5m2!1sen!2sin" 
+          src="https://maps.google.com/maps?q=17%C2%B029'35.6%22N%2078%C2%B020'15.1%22E&t=&z=15&ie=UTF8&iwloc=&output=embed" 
           width="100%" 
           height="100%" 
           style={{ border: 0 }} 

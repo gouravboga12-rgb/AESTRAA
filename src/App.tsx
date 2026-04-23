@@ -3,6 +3,8 @@ import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-route
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
+import { HelmetProvider } from 'react-helmet-async';
+
 // Layout
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
@@ -36,23 +38,25 @@ const App: React.FC = () => {
   }, []);
 
   return (
-    <Router>
-      <ScrollToTop />
-      <div className="flex flex-col min-h-screen selection:bg-gold selection:text-white overflow-x-hidden">
-        <Navbar />
-        <main className="flex-grow">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/services" element={<Services />} />
-            <Route path="/gallery" element={<Gallery />} />
-            <Route path="/contact" element={<Contact />} />
-          </Routes>
-        </main>
-        <Footer />
-        <WhatsAppButton />
-      </div>
-    </Router>
+    <HelmetProvider>
+      <Router>
+        <ScrollToTop />
+        <div className="flex flex-col min-h-screen selection:bg-gold selection:text-white overflow-x-hidden">
+          <Navbar />
+          <main className="flex-grow">
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/services" element={<Services />} />
+              <Route path="/gallery" element={<Gallery />} />
+              <Route path="/contact" element={<Contact />} />
+            </Routes>
+          </main>
+          <Footer />
+          <WhatsAppButton />
+        </div>
+      </Router>
+    </HelmetProvider>
   );
 };
 

@@ -1,6 +1,7 @@
 import React from 'react';
 import Section from '../components/Section';
 import { ArrowRight, Check } from 'lucide-react';
+import SEO from '../components/SEO';
 
 const Services: React.FC = () => {
   const serviceDetails = [
@@ -40,6 +41,10 @@ const Services: React.FC = () => {
 
   return (
     <div className="pt-20">
+      <SEO 
+        title="Art Services & Workshops | Hyderabad Studio"
+        description="Explore our range of premium art services including corporate workshops, children's art programs, commissioned paintings, and institutional consultancy."
+      />
       <section className="bg-zinc-50 pt-24 md:pt-32 pb-32 md:pb-48 px-6 md:px-12 text-center" data-aos="fade">
         <div className="max-w-4xl mx-auto">
           <span className="text-gold text-xs uppercase tracking-[0.3em] font-bold mb-6 block">Our Offerings</span>

@@ -1,5 +1,6 @@
 import React from 'react';
 import Section from '../components/Section';
+import SEO from '../components/SEO';
 
 const About: React.FC = () => {
   const founders = [
@@ -12,13 +13,17 @@ const About: React.FC = () => {
     {
       name: 'Sukarna Das',
       role: 'Founder, Aestraa',
-      bio: 'A contemporary visual artist with a Bachelor’s and Master’s in Fine Arts, her work has been showcased at platforms such as the Birla Academy of Art & Culture, Centre of International Modern Art, and international exhibitions including the Universal Youth Movement, Bangladesh. Recognized with the Jury’s Special Mention (2022) and Highly Commended Award (2021), she brings over five years of mentoring experience. At Aestraa, her vision is to nurture talent, empower artists, and elevate art as a global medium of expression.',
+      bio: 'A contemporary visual artist with a Bachelor’s and Master’s in Fine Arts, her work has been showcased at platforms such as the Birla Academy of Art & Culture, Centre of International Modern Art, and international exhibitions including the Universal youth Movement, Bangladesh. Recognized with the Jury’s Special Mention (2022) and Highly Commended Award (2021), she brings over five years of mentoring experience. At Aestraa, her vision is to nurture talent, empower artists, and elevate art as a global medium of expression.',
       image: '/sukarna.jpg'
     }
   ];
 
   return (
     <div className="pt-20">
+      <SEO 
+        title="About Our Studio | Aestraa Philosophy & Founders"
+        description="Learn about Aestraa's mission to transform lives through art. Meet our founders Joydeb Pal and Sukarna Das and discover our structured approach to creativity."
+      />
       {/* Editorial Header */}
       <section className="bg-zinc-50 pt-24 md:pt-32 pb-16 md:pb-32 px-6 md:px-12 text-center" data-aos="fade">
         <div className="max-w-4xl mx-auto">
