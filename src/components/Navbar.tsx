@@ -101,7 +101,7 @@ const Navbar: React.FC = () => {
 
       {/* Mobile Menu */}
       <div className={cn(
-        'fixed top-0 left-0 w-full bg-white z-40 flex flex-col items-center pt-24 pb-12 gap-6 transition-all duration-500 md:hidden shadow-2xl rounded-b-[2rem]',
+        'fixed top-0 left-0 w-full bg-white/95 backdrop-blur-xl z-40 flex flex-col items-center pt-28 pb-12 gap-8 transition-all duration-700 ease-in-out md:hidden shadow-[0_20px_50px_rgba(15,28,63,0.1)] rounded-b-[3rem]',
         isMobileMenuOpen ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'
       )}>
         <div className="absolute top-0 left-0 w-full p-4 md:p-6 flex items-center justify-between">
@@ -120,22 +120,45 @@ const Navbar: React.FC = () => {
             <X className="w-8 h-8" />
           </button>
         </div>
-        {navLinks.map((link) => {
-          const isActive = location.pathname === link.path;
-          return (
-            <Link
-              key={link.name}
-              to={link.path}
-              className={cn(
-                "text-lg md:text-xl font-serif tracking-widest transition-colors",
-                isActive ? "text-gold" : "text-navy hover:text-gold"
-              )}
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              {link.name}
-            </Link>
-          );
-        })}
+        <div className="flex flex-col items-center w-full max-w-sm px-8 gap-0">
+          {navLinks.map((link, i) => {
+            const isActive = location.pathname === link.path;
+            return (
+              <Link
+                key={link.name}
+                to={link.path}
+                style={{ transitionDelay: `${i * 50}ms` }}
+                className={cn(
+                  "w-full py-4 text-lg font-serif tracking-[0.2em] transition-all duration-500 border-b border-navy/5 flex items-center justify-between group/item",
+                  isMobileMenuOpen ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0',
+                  isActive ? "text-gold" : "text-navy hover:text-gold"
+                )}
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                <span>{link.name}</span>
+                <span className={cn(
+                  "w-1.5 h-1.5 rounded-full bg-gold transition-all duration-500",
+                  isActive ? "opacity-100 scale-100" : "opacity-0 scale-0 group-hover/item:opacity-50 group-hover/item:scale-100"
+                )} />
+              </Link>
+            );
+          })}
+          
+          <div className={cn(
+            "w-full mt-8 pt-8 flex flex-col gap-4 items-center transition-all duration-700 delay-300",
+            isMobileMenuOpen ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
+          )}>
+            <p className="text-[10px] uppercase tracking-[0.3em] font-bold text-navy/30">Connect With Us</p>
+            <div className="flex gap-8">
+               <a href="https://wa.me/918125585386" target="_blank" rel="noopener noreferrer" className="text-navy/40 hover:text-gold transition-colors">
+                 <span className="text-xs tracking-widest font-bold">WHATSAPP</span>
+               </a>
+               <a href="mailto:aestraaarts@gmail.com" className="text-navy/40 hover:text-gold transition-colors">
+                 <span className="text-xs tracking-widest font-bold">EMAIL</span>
+               </a>
+            </div>
+          </div>
+        </div>
       </div>
     </nav>
   );
