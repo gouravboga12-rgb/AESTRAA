@@ -1,6 +1,6 @@
 import React from 'react';
 import Section from '../components/Section';
-import { ArrowRight, Palette, Brush, GraduationCap, ShoppingBag, Check, Mail, Phone, MapPin, MessageCircle } from 'lucide-react';
+import { ArrowRight, Check, Mail, Phone, MapPin, MessageCircle } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const TestimonialSlider: React.FC = () => {
