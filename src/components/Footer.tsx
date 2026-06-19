@@ -50,7 +50,7 @@ const Footer: React.FC = () => {
             <li className="flex gap-4 items-start">
               <Mail size={18} className="text-gold shrink-0 mt-1" />
               <div className="text-white/70">
-                <p>aestraaarts@gmail.com</p>
+                <p>info@aestraa.com</p>
                 <p className="text-xs mt-1 text-white/40">Inquiries within 24h</p>
               </div>
             </li>

@@ -395,7 +395,7 @@ const Home: React.FC = () => {
                   </div>
                   <div>
                     <h3 className="text-xs uppercase tracking-widest font-bold text-navy mb-2">Email Us</h3>
-                    <p className="text-navy/60 font-light text-lg">aestraaarts@gmail.com</p>
+                    <p className="text-navy/60 font-light text-lg">info@aestraa.com</p>
                   </div>
                 </div>
 

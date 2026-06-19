@@ -153,7 +153,7 @@ const Navbar: React.FC = () => {
                <a href="https://wa.me/918125585386" target="_blank" rel="noopener noreferrer" className="text-navy/40 hover:text-gold transition-colors">
                  <span className="text-xs tracking-widest font-bold">WHATSAPP</span>
                </a>
-               <a href="mailto:aestraaarts@gmail.com" className="text-navy/40 hover:text-gold transition-colors">
+               <a href="mailto:info@aestraa.com" className="text-navy/40 hover:text-gold transition-colors">
                  <span className="text-xs tracking-widest font-bold">EMAIL</span>
                </a>
             </div>
