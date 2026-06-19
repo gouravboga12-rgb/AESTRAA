@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Section from '../components/Section';
 import { Mail, Phone, MapPin, MessageCircle, ArrowRight } from 'lucide-react';
 import SEO from '../components/SEO';
@@ -8,6 +8,15 @@ const Contact: React.FC = () => {
   const [email, setEmail] = useState('');
   const [interest, setInterest] = useState('Workshop Inquiry');
   const [message, setMessage] = useState('');
+
+  const formRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      formRef.current?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }, 300); // 300ms delay to let animations/routing settle
+    return () => clearTimeout(timer);
+  }, []);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -89,7 +98,7 @@ const Contact: React.FC = () => {
           </div>
 
           {/* Contact Form */}
-          <div data-aos="fade-left" className="relative">
+          <div ref={formRef} data-aos="fade-left" className="relative">
             {/* Decorative background elements */}
             <div className="absolute -top-10 -right-10 w-40 h-40 bg-gold/5 rounded-full blur-3xl z-0"></div>
             <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-navy/5 rounded-full blur-3xl z-0"></div>
