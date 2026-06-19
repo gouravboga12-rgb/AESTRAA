@@ -8,9 +8,19 @@ const Gallery: React.FC = () => {
   const categories = ['All', 'Paintings', 'Installations', 'Workshops'];
 
   const images = [
+    { src: '/gallery/image.png', category: 'Workshops' },
     { src: '/gallery/painting1.png', category: 'Paintings' },
-    { src: '/gallery/workshop1.png', category: 'Workshops' },
-    { src: 'https://images.unsplash.com/photo-1513364776144-60967b0f800f?q=80&w=2800&auto=format&fit=crop', category: 'Workshops' },
+    { src: '/gallery/p1.jpeg', category: 'Workshops' },
+    { src: '/gallery/p2.jpeg', category: 'Workshops' },
+    { src: '/gallery/p3.jpeg', category: 'Workshops' },
+    { src: '/gallery/p4.jpeg', category: 'Workshops' },
+    { src: '/gallery/p5.jpeg', category: 'Workshops' },
+    { src: '/gallery/p6.jpeg', category: 'Workshops' },
+    { src: '/gallery/p7.jpeg', category: 'Workshops' },
+    { src: '/gallery/p8.jpeg', category: 'Workshops' },
+    { src: '/gallery/p9.jpeg', category: 'Workshops' },
+    { src: '/gallery/p10.jpeg', category: 'Workshops' },
+    { src: '/gallery/p11.jpeg', category: 'Workshops' },
     { src: '/gallery/installation1.png', category: 'Installations' },
     { src: '/marketplace.png', category: 'Paintings' },
     { src: '/hero.png', category: 'Paintings' },

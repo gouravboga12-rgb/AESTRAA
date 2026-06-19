@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Section from '../components/Section';
 import { ArrowRight, Check, Mail, Phone, MapPin, MessageCircle } from 'lucide-react';
 import { Link } from 'react-router-dom';
@@ -65,6 +65,17 @@ const TestimonialSlider: React.FC = () => {
 
 const Home: React.FC = () => {
   const [scrollY, setScrollY] = React.useState(0);
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [interest, setInterest] = useState('Workshop Inquiry');
+  const [message, setMessage] = useState('');
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    const text = `Hi Aestraa, I'd like to send an inquiry:\n\n*Name:* ${name}\n*Email:* ${email}\n*Service Interest:* ${interest}\n*Message:* ${message}`;
+    const encodedText = encodeURIComponent(text);
+    window.open(`https://wa.me/918125585386?text=${encodedText}`, '_blank');
+  };
 
   React.useEffect(() => {
     const handleScroll = () => setScrollY(window.scrollY);
@@ -119,15 +130,31 @@ const Home: React.FC = () => {
       role: 'Founder, Aestraa',
       bio: 'A contemporary visual artist with a Bachelor’s and Master’s in Fine Arts, her work has been showcased at platforms such as the Birla Academy of Art & Culture, Centre of International Modern Art, and international exhibitions including the Universal Youth Movement, Bangladesh. Recognized with the Jury’s Special Mention (2022) and Highly Commended Award (2021), she brings over five years of mentoring experience. At Aestraa, her vision is to nurture talent, empower artists, and elevate art as a global medium of expression.',
       image: '/sukarna.jpg'
+    },
+    {
+      name: 'Pranay Kumar Alluri',
+      role: 'Editor, Aestraa',
+      bio: 'An editor with a solid foundation in fine arts (BFA), Pranay Kumar Alluri focuses on bringing an artistic, active, visual sensibility to editorial content. At AESTRAA, his vision is to craft compelling, narrative-driven content that empowers readers and promotes artistic expression as a global medium. With a comprehensive background in art theory and visual composition from his BFA studies, he brings over six years of experience in curating, refining, and publishing digital and print media. At AESTRAA, he is dedicated to mentoring talent, editing impactful stories, and elevating content strategy to resonate with a global audience. Pranay\'s passion lies in using narrative as a tool for visual communication and community building.',
+      image: '/pranay.png'
     }
   ];
 
   const galleryImages = [
+    { src: '/gallery/image.png', category: 'Workshops' },
     { src: '/gallery/painting1.png', category: 'Paintings' },
-    { src: '/gallery/workshop1.png', category: 'Workshops' },
-    { src: 'https://images.unsplash.com/photo-1513364776144-60967b0f800f?q=80&w=2800&auto=format&fit=crop', category: 'Workshops' },
     { src: '/gallery/installation1.png', category: 'Installations' },
+    { src: '/gallery/p1.jpeg', category: 'Workshops' },
     { src: '/marketplace.png', category: 'Paintings' },
+    { src: '/gallery/p2.jpeg', category: 'Workshops' },
+    { src: '/gallery/p3.jpeg', category: 'Workshops' },
+    { src: '/gallery/p4.jpeg', category: 'Workshops' },
+    { src: '/gallery/p5.jpeg', category: 'Workshops' },
+    { src: '/gallery/p6.jpeg', category: 'Workshops' },
+    { src: '/gallery/p7.jpeg', category: 'Workshops' },
+    { src: '/gallery/p8.jpeg', category: 'Workshops' },
+    { src: '/gallery/p9.jpeg', category: 'Workshops' },
+    { src: '/gallery/p10.jpeg', category: 'Workshops' },
+    { src: '/gallery/p11.jpeg', category: 'Workshops' },
     { src: '/hero.png', category: 'Paintings' },
     { src: 'https://images.unsplash.com/photo-1582555172866-f73bb12a2ab3?q=80&w=2800&auto=format&fit=crop', category: 'Installations' },
     { src: 'https://images.unsplash.com/photo-1561214115-f2f134cc4912?q=80&w=2709&auto=format&fit=crop', category: 'Paintings' },
@@ -293,7 +320,7 @@ const Home: React.FC = () => {
             <span className="text-gold text-xs uppercase tracking-[0.3em] font-bold mb-6 block">The Visionaries</span>
             <h2 className="text-3xl sm:text-4xl md:text-6xl font-serif text-navy">Meet Our Founders</h2>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-4xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 max-w-6xl mx-auto">
             {founders.map((founder, index) => (
               <div key={index} className="space-y-4 text-center md:text-left" data-aos="fade-up" data-aos-delay={index * 200}>
                 <div className="aspect-[4/5] overflow-hidden shadow-md hover:shadow-xl transition-all duration-700 max-w-xs mx-auto md:mx-0">
@@ -321,18 +348,18 @@ const Home: React.FC = () => {
         </div>
         
         <Section>
-          <div className="columns-1 md:columns-2 lg:columns-3 gap-6 space-y-6">
-            {galleryImages.slice(0, 4).map((image, index) => (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {galleryImages.slice(0, 6).map((image, index) => (
               <div 
                 key={index} 
-                className="break-inside-avoid group relative overflow-hidden shadow-sm hover:shadow-xl transition-all" 
+                className="group relative overflow-hidden shadow-sm hover:shadow-xl transition-all aspect-[4/3]" 
                 data-aos="fade-up"
                 data-aos-delay={index * 50}
               >
                 <img 
                   src={image.src} 
                   alt={`Art ${index}`} 
-                  className="w-full h-auto object-cover transition-all duration-700 hover:scale-105" 
+                  className="w-full h-full object-cover transition-all duration-700 hover:scale-105" 
                 />
                 <div className="absolute inset-0 bg-navy/0 group-hover:bg-navy/40 transition-all duration-500 flex flex-col justify-end p-8 opacity-0 group-hover:opacity-100">
                   <span className="text-gold text-[10px] uppercase tracking-widest font-bold mb-2">Aestraa Studio</span>
@@ -413,12 +440,15 @@ const Home: React.FC = () => {
             <div data-aos="fade-left" className="relative">
               <div className="relative z-10 bg-white p-8 md:p-12 shadow-[0_30px_60px_-15px_rgba(15,28,63,0.08)] border border-zinc-100">
                 <h2 className="text-3xl font-serif text-navy mb-10">Send an Inquiry</h2>
-                <form className="space-y-10" onSubmit={(e) => e.preventDefault()}>
+                <form className="space-y-10" onSubmit={handleSubmit}>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
                     <div className="space-y-2 group">
                       <label className="text-[10px] uppercase tracking-[0.2em] font-bold text-navy/40 group-focus-within:text-gold transition-colors">Full Name</label>
                       <input 
                         type="text" 
+                        required
+                        value={name}
+                        onChange={(e) => setName(e.target.value)}
                         className="w-full border-b border-zinc-100 py-3 focus:border-gold outline-none transition-all duration-500 font-light text-lg px-0 bg-transparent placeholder:text-zinc-200 focus:pl-2" 
                         placeholder="Your Name" 
                       />
@@ -427,6 +457,9 @@ const Home: React.FC = () => {
                       <label className="text-[10px] uppercase tracking-[0.2em] font-bold text-navy/40 group-focus-within:text-gold transition-colors">Email Address</label>
                       <input 
                         type="email" 
+                        required
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
                         className="w-full border-b border-zinc-100 py-3 focus:border-gold outline-none transition-all duration-500 font-light text-lg px-0 bg-transparent placeholder:text-zinc-200 focus:pl-2" 
                         placeholder="email@example.com" 
                       />
@@ -436,7 +469,11 @@ const Home: React.FC = () => {
                   <div className="space-y-2 group">
                     <label className="text-[10px] uppercase tracking-[0.2em] font-bold text-navy/40 group-focus-within:text-gold transition-colors">Service Interest</label>
                     <div className="relative">
-                      <select className="w-full border-b border-zinc-100 py-3 focus:border-gold outline-none transition-all duration-500 font-light text-lg px-0 bg-transparent appearance-none relative z-10 cursor-pointer text-navy/60">
+                      <select 
+                        value={interest}
+                        onChange={(e) => setInterest(e.target.value)}
+                        className="w-full border-b border-zinc-100 py-3 focus:border-gold outline-none transition-all duration-500 font-light text-lg px-0 bg-transparent appearance-none relative z-10 cursor-pointer text-navy/60"
+                      >
                         <option>Workshop Inquiry</option>
                         <option>Art Commission</option>
                         <option>Consultancy</option>
@@ -452,12 +489,15 @@ const Home: React.FC = () => {
                     <label className="text-[10px] uppercase tracking-[0.2em] font-bold text-navy/40 group-focus-within:text-gold transition-colors">Your Message</label>
                     <textarea 
                       rows={4} 
+                      required
+                      value={message}
+                      onChange={(e) => setMessage(e.target.value)}
                       className="w-full border-b border-zinc-100 py-3 focus:border-gold outline-none transition-all duration-500 font-light text-lg px-0 bg-transparent resize-none placeholder:text-zinc-200 focus:pl-2" 
                       placeholder="Tell us about your project..."
                     ></textarea>
                   </div>
 
-                  <button className="group relative bg-navy text-white px-12 py-5 text-sm uppercase tracking-[0.3em] font-bold overflow-hidden transition-all duration-500 w-full md:w-auto">
+                  <button type="submit" className="group relative bg-navy text-white px-12 py-5 text-sm uppercase tracking-[0.3em] font-bold overflow-hidden transition-all duration-500 w-full md:w-auto">
                     <span className="relative z-10 flex items-center justify-center gap-3 group-hover:gap-5 transition-all">
                       Send Inquiry <ArrowRight size={18} />
                     </span>

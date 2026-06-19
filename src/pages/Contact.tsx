@@ -1,9 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Section from '../components/Section';
 import { Mail, Phone, MapPin, MessageCircle, ArrowRight } from 'lucide-react';
 import SEO from '../components/SEO';
 
 const Contact: React.FC = () => {
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [interest, setInterest] = useState('Workshop Inquiry');
+  const [message, setMessage] = useState('');
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    const text = `Hi Aestraa, I'd like to send an inquiry:\n\n*Name:* ${name}\n*Email:* ${email}\n*Service Interest:* ${interest}\n*Message:* ${message}`;
+    const encodedText = encodeURIComponent(text);
+    window.open(`https://wa.me/918125585386?text=${encodedText}`, '_blank');
+  };
   return (
     <div className="pt-20">
       <SEO 
@@ -85,12 +96,15 @@ const Contact: React.FC = () => {
             
             <div className="relative z-10 bg-white p-8 md:p-12 shadow-[0_30px_60px_-15px_rgba(15,28,63,0.08)] border border-zinc-100">
               <h2 className="text-3xl font-serif text-navy mb-10">Send an Inquiry</h2>
-              <form className="space-y-10" onSubmit={(e) => e.preventDefault()}>
+              <form className="space-y-10" onSubmit={handleSubmit}>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
                   <div className="space-y-2 group">
                     <label className="text-[10px] uppercase tracking-[0.2em] font-bold text-navy/40 group-focus-within:text-gold transition-colors">Full Name</label>
                     <input 
                       type="text" 
+                      required
+                      value={name}
+                      onChange={(e) => setName(e.target.value)}
                       className="w-full border-b border-zinc-100 py-3 focus:border-gold outline-none transition-all duration-500 font-light text-lg px-0 bg-transparent placeholder:text-zinc-200 focus:pl-2" 
                       placeholder="Your Name" 
                     />
@@ -99,6 +113,9 @@ const Contact: React.FC = () => {
                     <label className="text-[10px] uppercase tracking-[0.2em] font-bold text-navy/40 group-focus-within:text-gold transition-colors">Email Address</label>
                     <input 
                       type="email" 
+                      required
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
                       className="w-full border-b border-zinc-100 py-3 focus:border-gold outline-none transition-all duration-500 font-light text-lg px-0 bg-transparent placeholder:text-zinc-200 focus:pl-2" 
                       placeholder="email@example.com" 
                     />
@@ -108,7 +125,11 @@ const Contact: React.FC = () => {
                 <div className="space-y-2 group">
                   <label className="text-[10px] uppercase tracking-[0.2em] font-bold text-navy/40 group-focus-within:text-gold transition-colors">Service Interest</label>
                   <div className="relative">
-                    <select className="w-full border-b border-zinc-100 py-3 focus:border-gold outline-none transition-all duration-500 font-light text-lg px-0 bg-transparent appearance-none relative z-10 cursor-pointer text-navy/60">
+                    <select 
+                      value={interest}
+                      onChange={(e) => setInterest(e.target.value)}
+                      className="w-full border-b border-zinc-100 py-3 focus:border-gold outline-none transition-all duration-500 font-light text-lg px-0 bg-transparent appearance-none relative z-10 cursor-pointer text-navy/60"
+                    >
                       <option>Workshop Inquiry</option>
                       <option>Art Commission</option>
                       <option>Consultancy</option>
@@ -124,12 +145,15 @@ const Contact: React.FC = () => {
                   <label className="text-[10px] uppercase tracking-[0.2em] font-bold text-navy/40 group-focus-within:text-gold transition-colors">Your Message</label>
                   <textarea 
                     rows={4} 
+                    required
+                    value={message}
+                    onChange={(e) => setMessage(e.target.value)}
                     className="w-full border-b border-zinc-100 py-3 focus:border-gold outline-none transition-all duration-500 font-light text-lg px-0 bg-transparent resize-none placeholder:text-zinc-200 focus:pl-2" 
                     placeholder="Tell us about your project..."
                   ></textarea>
                 </div>
 
-                <button className="group relative bg-navy text-white px-12 py-5 text-sm uppercase tracking-[0.3em] font-bold overflow-hidden transition-all duration-500 w-full md:w-auto">
+                <button type="submit" className="group relative bg-navy text-white px-12 py-5 text-sm uppercase tracking-[0.3em] font-bold overflow-hidden transition-all duration-500 w-full md:w-auto">
                   <span className="relative z-10 flex items-center justify-center gap-3 group-hover:gap-5 transition-all">
                     Send Inquiry <ArrowRight size={18} />
                   </span>

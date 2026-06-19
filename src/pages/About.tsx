@@ -15,6 +15,12 @@ const About: React.FC = () => {
       role: 'Founder, Aestraa',
       bio: 'A contemporary visual artist with a Bachelor’s and Master’s in Fine Arts, her work has been showcased at platforms such as the Birla Academy of Art & Culture, Centre of International Modern Art, and international exhibitions including the Universal youth Movement, Bangladesh. Recognized with the Jury’s Special Mention (2022) and Highly Commended Award (2021), she brings over five years of mentoring experience. At Aestraa, her vision is to nurture talent, empower artists, and elevate art as a global medium of expression.',
       image: '/sukarna.jpg'
+    },
+    {
+      name: 'Pranay Kumar Alluri',
+      role: 'Editor, Aestraa',
+      bio: 'An editor with a solid foundation in fine arts (BFA), Pranay Kumar Alluri focuses on bringing an artistic, active, visual sensibility to editorial content. At AESTRAA, his vision is to craft compelling, narrative-driven content that empowers readers and promotes artistic expression as a global medium. With a comprehensive background in art theory and visual composition from his BFA studies, he brings over six years of experience in curating, refining, and publishing digital and print media. At AESTRAA, he is dedicated to mentoring talent, editing impactful stories, and elevating content strategy to resonate with a global audience. Pranay\'s passion lies in using narrative as a tool for visual communication and community building.',
+      image: '/pranay.png'
     }
   ];
 
@@ -22,7 +28,7 @@ const About: React.FC = () => {
     <div className="pt-20">
       <SEO 
         title="About Our Studio | Aestraa Philosophy & Founders"
-        description="Learn about Aestraa's mission to transform lives through art. Meet our founders Joydeb Pal and Sukarna Das and discover our structured approach to creativity."
+        description="Learn about Aestraa's mission to transform lives through art. Meet our leaders Joydeb Pal, Sukarna Das, and Pranay Kumar Alluri, and discover our structured approach to creativity."
       />
       {/* Editorial Header */}
       <section className="bg-zinc-50 pt-24 md:pt-32 pb-16 md:pb-32 px-6 md:px-12 text-center" data-aos="fade">
@@ -54,7 +60,7 @@ const About: React.FC = () => {
                 From immersive workshops to large-scale commissioned artworks and structured art consultancy, we blend creativity with purpose. Our approach is defined by a commitment to excellence and a professional, structured methodology.
               </p>
               <p>
-                Our founders, Joydeb Pal and Sukarna Das, lead a curated team of artists, educators, and creative professionals dedicated to delivering excellence in every creation.
+                Our leadership team—founders Joydeb Pal and Sukarna Das, alongside editor Pranay Kumar Alluri—leads a curated team of artists, educators, and creative professionals dedicated to delivering excellence in every creation.
               </p>
             </div>
           </div>
@@ -88,7 +94,7 @@ const About: React.FC = () => {
           <span className="text-gold text-xs uppercase tracking-[0.3em] font-bold mb-6 block">The Visionaries</span>
           <h2 className="text-4xl md:text-6xl font-serif text-navy">Meet Our Founders</h2>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-4xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 max-w-6xl mx-auto">
           {founders.map((founder, index) => (
             <div key={index} className="space-y-4 text-center md:text-left" data-aos="fade-up" data-aos-delay={index * 200}>
               <div className="aspect-[4/5] overflow-hidden shadow-md hover:shadow-xl transition-all duration-700 max-w-xs mx-auto md:mx-0">
